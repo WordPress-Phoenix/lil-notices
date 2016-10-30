@@ -1,21 +1,19 @@
 <?php
 /**
  * Plugin Name: Lil Notices
- * Plugin URI: http://mlteal.com/
- * Description: Giant admin notices are annoying. Make them lil'.
- * Author: mlteal
- * Version: 1.0.1
+ * Plugin URI: https://github.com/WordPress-Phoenix/lil-notices
+ * Description: Take all the stacking admin notices plugins and themes use and move them into an admin menu dropdown.
+ * Author: mlteal, adreaself
+ * Version: 1.0.2
  * License: GPLv2
- * Text Domain: ln_domain
+ * Text Domain: liln
  *
- * GitHub Plugin URI: https://github.com/mlteal/lil-notices
+ * GitHub Plugin URI: https://github.com/WordPress-Phoenix/lil-notices
  * GitHub Branch: master
  *
- * @package ln_domain
+ * @package liln
  * @category plugin
  */
-
-define( 'LIL_NOTICES__VERSION', '1.0.1' );
 
 require_once( 'class-lil-notices.php' );
 
