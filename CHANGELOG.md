@@ -1,4 +1,4 @@
-#### 1.0.5
+#### 1.0.6
 * version bump hotfix multisite plugins page test link
 
 #### 1.0.4
