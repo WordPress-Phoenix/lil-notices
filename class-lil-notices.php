@@ -15,6 +15,9 @@ if ( ! function_exists( 'add_filter' ) ) {
 if ( ! class_exists( 'Lil_Notices' ) ) {
 	class Lil_Notices {
 
+		public static $style_version = '1.0.0';
+		public static $js_version = '1.0.0';
+
 		/**
 		 * Initialize the plugin
 		 *
@@ -22,17 +25,33 @@ if ( ! class_exists( 'Lil_Notices' ) ) {
 		 * @return  void
 		 */
 		public static function init() {
-			if ( ( is_multisite() ) && ( is_network_admin () ) ) {
+			// Disable notices UIX in network admin area or not in the admin at all
+			if ( ! is_admin() || ( is_multisite() ) && ( is_network_admin() ) ) {
 				return;
 			}
 			add_action( 'admin_bar_menu', array( get_called_class(), 'admin_bar_menu' ), 999 );
 			add_action( 'admin_enqueue_scripts', array( get_called_class(), 'admin_enqueue_scripts' ), 999 );
+
+			if ( ! empty( $_REQUEST['notice_test'] ) ) {
+				add_action( 'admin_notices', function () {
+					echo '<div class="notice notice-success is-dismissible">';
+					echo '<p>This is a notice test. Notices created by themes and plugins will be here in the future!</p>';
+					echo '</div>';
+				} );
+			}
+
+			add_filter( 'plugin_action_links_' . plugin_basename( __DIR__ . '/lil-notices.php' ), function ( $links ) {
+				$links[] = '<a href="?notice_test=true">Test Lil Notices</a>';
+
+				return $links;
+			} );
+
 		} // end public function init
 
 
 		public static function admin_enqueue_scripts() {
-			wp_enqueue_script( 'ln-scripts', plugin_dir_url( __FILE__ ) . 'assets/dist/main.js', array(), LIL_NOTICES__VERSION, true );
-			wp_enqueue_style( 'ln-styles', plugin_dir_url( __FILE__ ) . 'assets/dist/style.css', array(), LIL_NOTICES__VERSION );
+			wp_enqueue_script( 'ln-scripts', plugin_dir_url( __FILE__ ) . 'assets/main.js', array(), self::$style_version, true );
+			wp_enqueue_style( 'ln-styles', plugin_dir_url( __FILE__ ) . 'assets/style.css', array(), self::$js_version );
 		}
 
 		public static function admin_bar_menu() {
@@ -190,6 +209,7 @@ if ( ! class_exists( 'Lil_Notices' ) ) {
 		 * @return  void
 		 */
 		public static function activate() {
+			// Nothing yet
 		} // END public static function activate
 
 		/**
@@ -199,6 +219,7 @@ if ( ! class_exists( 'Lil_Notices' ) ) {
 		 * @return  void
 		 */
 		public static function deactivate() {
+			// Nothing yet
 		} // END public static function deactivate
 
 	} // END class Lil_Notices
