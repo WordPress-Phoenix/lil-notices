@@ -25,3 +25,5 @@ Admin notices can get really annoying. Make them better.
 # How it works details
 ## Summary
 This plugin has no options page, it simply runs on the wp-admin (backend) of your website and moves all the notices that plugins and themes would have created at the top of your page, and instead moves them into a lil dropdown menu in the wp-admin bar. 
+
+![screenshot-1](./assets/screenshots/screenshot-1.png)
