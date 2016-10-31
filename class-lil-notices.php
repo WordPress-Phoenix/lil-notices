@@ -46,6 +46,12 @@ if ( ! class_exists( 'Lil_Notices' ) ) {
 				return $links;
 			} );
 
+			add_filter( 'network_admin_plugin_action_links_' . plugin_basename( __DIR__ . '/lil-notices.php' ), function ( $links ) {
+				$links[] = '<a href="?notice_test=true">Test Lil Notices</a>';
+
+				return $links;
+			} );
+
 		} // end public function init
 
 
