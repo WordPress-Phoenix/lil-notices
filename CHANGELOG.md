@@ -1,3 +1,6 @@
+#### 1.0.4
+* documentation update version bump
+
 #### 1.0.3
 * Forked to WordPress Phoenix Repo
 * Removed define version, moved to style and js file versions

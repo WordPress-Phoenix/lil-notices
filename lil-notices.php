@@ -5,7 +5,7 @@
  * Description: Take all the stacking admin notices plugins and themes use and move them into an admin menu dropdown.
  * Author: mlteal, adreaself, sethcarstens
  * Author URI: https://github.com/orgs/WordPress-Phoenix/teams/developers
- * Version: 1.0.3
+ * Version: 1.0.4
  * License: GPLv2
  * Text Domain: liln
  *
