@@ -40,19 +40,13 @@ if ( ! class_exists( 'Lil_Notices' ) ) {
 				} );
 			}
 
-			add_filter( 'plugin_action_links_' . plugin_basename( __DIR__ . '/lil-notices.php' ), function ( $links ) {
-				$links[] = '<a href="?notice_test=true">Test Lil Notices</a>';
-
-				return $links;
-			} );
-
-			add_filter( 'network_admin_plugin_action_links_' . plugin_basename( __DIR__ . '/lil-notices.php' ), function ( $links ) {
-				$links[] = '<a href="?notice_test=true">Test Lil Notices</a>';
-
-				return $links;
-			} );
-
 		} // end public function init
+
+		public static function plugin_action_links( $links ) {
+			$links[] = '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '?notice_test=lil-notices">' . esc_html__( 'Test Lil Notices', 'liln' ) . '</a>';
+
+			return $links;
+		}
 
 
 		public static function admin_enqueue_scripts() {

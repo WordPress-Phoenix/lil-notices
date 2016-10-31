@@ -28,4 +28,9 @@ if ( class_exists( 'Lil_Notices' ) ) {
 
 	// initialize after all plugins are loaded
 	add_action( 'plugins_loaded', array( 'Lil_Notices', 'init' ) );
+
+	// must load action links before init, as init is too late for network plugin action links
+	$plugin_name = plugin_basename( __FILE__ );
+	add_filter( 'plugin_action_links_' . $plugin_name, array( 'Lil_Notices', 'plugin_action_links' ) );
+	add_filter( 'network_admin_plugin_action_links_' . $plugin_name, array( 'Lil_Notices', 'plugin_action_links' ) );
 }
