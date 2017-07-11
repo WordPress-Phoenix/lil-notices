@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Lil Notices
- * Plugin URI: https://github.com/WordPress-Phoenix/lil-notices
+ * Plugin URI: https://github.com/fansided/lil-notices
  * Description: Take all the stacking admin notices plugins and themes use and move them into an admin menu dropdown.
- * Author: mlteal, adreaself, sethcarstens
+ * Author: mlteal, andreaself, sethcarstens
  * Author URI: https://github.com/orgs/WordPress-Phoenix/teams/developers
- * Version: 1.0.6
+ * Version: 1.0.7
  * License: GPLv2
  * Text Domain: liln
  *
@@ -15,6 +15,8 @@
  * @package liln
  * @category plugin
  */
+
+define( 'LIL_NOTICES__VERSION', '1.0.7' );
 
 require_once( 'class-lil-notices.php' );
 
