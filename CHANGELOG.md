@@ -1,3 +1,6 @@
+#### 1.0.7
+* WP 4.7+ compatibility
+
 #### 1.0.6
 * version bump hotfix multisite plugins page test link
 
